@@ -12,12 +12,12 @@ public class Main {
         System.out.println("Welcome to Guess The Number!");
         System.out.println("I have selected a 4-digit number.");
         System.out.println();
-
+        int attempts=0;
         while (true) {
 
             System.out.print("Enter your guess: ");
             String guess = in.next();
-
+            attempts++;
             if (guess.length() != 4) {
                 System.out.println("Please enter exactly 4 digits.");
                 continue;
@@ -53,6 +53,7 @@ public class Main {
 
             if (correctPositions == 4) {
                 System.out.println("Congratulations! You guessed the number!");
+                System.out.println("Attempts: " + attempts);
                 break;
             }
         }
