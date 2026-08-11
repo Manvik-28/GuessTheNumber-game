@@ -3,9 +3,9 @@ let digits = 4;
 let attempts = 0;
 let hintsLeft = 2;
 let hintsUsed = 0;
-
+let revealedPositions = [];
 function startGame(numberOfDigits) {
-
+    revealedPositions = [];
     digits = numberOfDigits;
     attempts = 0;
     hintsUsed = 0;
@@ -168,7 +168,20 @@ function hasRepeatedDigits() {
 
 function getRandomUnrevealedPosition() {
 
-    return Math.floor(Math.random() * digits);
+    let available = [];
+
+    for (let i = 0; i < digits; i++) {
+
+        if (!revealedPositions.includes(i)) {
+            available.push(i);
+        }
+    }
+
+    let position = available[Math.floor(Math.random() * available.length)];
+
+    revealedPositions.push(position);
+
+    return position;
 }
 
 
