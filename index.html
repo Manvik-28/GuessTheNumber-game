@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <h1>Guess The Number</h1>
+        <p class="subtitle">Can you crack the secret number?</p>
+
+        <div id="difficulty-screen">
+
+            <h2>Choose Difficulty</h2>
+
+            <div class="difficulty-buttons">
+                <button onclick="startGame(4)">Easy<br><span>4 Digits</span></button>
+                <button onclick="startGame(6)">Medium<br><span>6 Digits</span></button>
+                <button onclick="startGame(8)">Hard<br><span>8 Digits</span></button>
+                <button onclick="startGame(10)">Extreme<br><span>10 Digits</span></button>
+            </div>
+
+        </div>
+
+        <div id="game-screen" class="hidden">
+
+            <div class="game-info">
+                <span>Digits: <b id="digit-count">4</b></span>
+                <span>Attempts: <b id="attempts">0</b></span>
+                <span>Hints: <b id="hints">2</b></span>
+            </div>
+
+            <p id="message">Enter your guess</p>
+
+            <input
+                type="text"
+                id="guess-input"
+                placeholder="Enter your guess"
+                autocomplete="off"
+            >
+
+            <button class="guess-button" onclick="checkGuess()">
+                Guess
+            </button>
+
+            <div class="result">
+
+                <div>
+                    <span>Correct Digits</span>
+                    <strong id="correct-digits">0</strong>
+                </div>
+
+                <div>
+                    <span>Correct Positions</span>
+                    <strong id="correct-positions">0</strong>
+                </div>
+
+            </div>
+
+            <div class="hint-section">
+
+                <h3>Hints</h3>
+
+                <button onclick="useHint()">
+                    💡 Use Hint
+                </button>
+
+                <p id="hint-message"></p>
+
+            </div>
+
+            <button class="restart-button" onclick="restartGame()">
+                Change Difficulty
+            </button>
+
+        </div>
+
+        <div id="win-screen" class="hidden">
+
+            <h2>🎉 You Won!</h2>
+
+            <p>The secret number was:</p>
+
+            <div id="secret-display"></div>
+
+            <p>You guessed it in <b id="final-attempts">0</b> attempts.</p>
+
+            <button class="guess-button" onclick="restartGame()">
+                Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
